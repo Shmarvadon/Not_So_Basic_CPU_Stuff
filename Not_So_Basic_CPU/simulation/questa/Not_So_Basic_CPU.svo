@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition"
 
-// DATE "09/17/2024 16:09:05"
+// DATE "09/17/2024 21:42:00"
 
 // 
 // Device: Altera 10M08DAF484C8G Package FBGA484
@@ -31,7 +31,7 @@
 
 module system (
 	clk);
-input 	clk;
+input 	reg clk ;
 
 // Design Ports Information
 // clk	=>  Location: PIN_E13,	 I/O Standard: 2.5 V,	 Current Strength: Default

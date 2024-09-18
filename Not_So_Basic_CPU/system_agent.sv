@@ -10,7 +10,7 @@ output [15:0] addr,
 inout [31:0] data,
 
 // IP interfacing stuff.
-inout [31:0] ip_dat [3:0],			// 32 bit data field.
+output [31:0] ip_dat [3:0],			// 32 bit data field.
 input [15:0] ip_addr [3:0],		// 16 bit address field.
 input [5:0]  ip_req_trans [3:0],	// 1 bit to request transaction, 1 bit to set read / write, 4 bits for priority.
 output [3:0] ip_trans_id [3:0]	// 4 bit transaction ID which is returned to the IP block.
@@ -18,7 +18,7 @@ output [3:0] ip_trans_id [3:0]	// 4 bit transaction ID which is returned to the 
 );
 
 // Wires & regs for queue shift register.
-logic [56:0] tx_queue_inp;
+reg [56:0] tx_queue_inp;
 wire [56:0] tx_queue_oup [7:0];
 reg tx_inp_en;
 reg [7:0] tx_queue_clear_reg;
@@ -44,49 +44,24 @@ end
 /* 		Find the highest priority request. 		*/
 
 
-logic [3:0] comp_l1_val[2];
-logic [1:0] comp_l1_ind[2];
-
-wire [1:0] comp_l2_ind;
 
 
-assign comp_l2_ind = comp_func();
+reg [1:0] highest_pri_tran;
 
-function [1:0] comp_func();
-	integer i;
-	// First level of comparators.
-	if (ip_req_trans[0][5:2] > ip_req_trans[1][5:2]) begin
-		comp_l1_val[0] = ip_req_trans[0][5:2];
-		comp_l1_ind[0] = 0;
-	end
-	else begin
-		comp_l1_val[0] = ip_req_trans[1][5:2];
-		comp_l1_ind[0] = 1;
-	end
-	
-	if (ip_req_trans[2][5:2] > ip_req_trans[3][5:2]) begin
-		comp_l1_val[1] = ip_req_trans[2][5:2];
-		comp_l1_ind[1] = 2;
-	end
-	else begin
-		comp_l1_val[1] = ip_req_trans[3][5:2];
-		comp_l1_ind[1] = 3;
-	end
-
-	// Second level of comparators.
-	if (comp_l1_val[0] > comp_l1_val[1]) comp_func = comp_l1_ind[0];
-	else comp_func = comp_l1_ind[1];
-endfunction
 
 /* 		combinatorial logic for choosing which IP to queue up for transaction. 		*/
-always @ (ip_req_trans) begin
+always @ (*) begin
+
+
+highest_pri_tran = ((ip_req_trans[0][5:2] > ip_req_trans[1][5:2]) ? ((ip_req_trans[2][5:2] > ip_req_trans[0][5:2]) ? ((ip_req_trans[3][5:2] > ip_req_trans[2][5:2]) ? 3 : 2) : 0): 1);
+
 	// If there is at least 1 pending request, grab the most important one from the priority decoder & prep it for input to queue.
 	if (ip_req_trans[0][0] | ip_req_trans[1][0] | ip_req_trans[2][0] | ip_req_trans[3][0] == 1) begin
-		tx_queue_inp[3:0] = comp_l2_ind;
+		tx_queue_inp[3:0] <= highest_pri_tran;
 		tx_queue_inp[7:4] <= next_tx_id;
-		tx_queue_inp[8] <= ip_req_trans[comp_l2_ind][1];
-		tx_queue_inp[40:9] <= ip_dat[comp_l2_ind];
-		tx_queue_inp[56:41] <= ip_addr[comp_l2_ind];
+		tx_queue_inp[8] <= ip_req_trans[highest_pri_tran][1];
+		tx_queue_inp[40:9] <= ip_dat[highest_pri_tran];
+		tx_queue_inp[56:41] <= ip_addr[highest_pri_tran];
 		tx_inp_en <= 1;
 	end
 	else begin

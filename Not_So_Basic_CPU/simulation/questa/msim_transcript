@@ -24,16 +24,92 @@
 # Copying c:/intelfpga_lite/23.1std/questa_fse/win64/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+C:/Users/harve/Documents/Not_So_Basic_CPU {C:/Users/harve/Documents/Not_So_Basic_CPU/system_agent.sv}
+# vlog -sv -work work +incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU {C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/system_agent.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:09:53 on Sep 17,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/harve/Documents/Not_So_Basic_CPU" C:/Users/harve/Documents/Not_So_Basic_CPU/system_agent.sv 
+# Start time: 21:45:29 on Sep 17,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU" C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/system_agent.sv 
 # -- Compiling module system_agent
-# ** Error (suppressible): C:/Users/harve/Documents/Not_So_Basic_CPU/system_agent.sv(82): (vlog-2255) Event expressions must result in a singular type.
-# End time: 16:09:53 on Sep 17,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: c:/intelfpga_lite/23.1std/questa_fse/win64/vlog failed.
-# Error in macro ./Not_So_Basic_CPU_run_msim_rtl_verilog.do line 8
-# c:/intelfpga_lite/23.1std/questa_fse/win64/vlog failed.
-#     while executing
-# "vlog -sv -work work +incdir+C:/Users/harve/Documents/Not_So_Basic_CPU {C:/Users/harve/Documents/Not_So_Basic_CPU/system_agent.sv}"
+# 
+# Top level modules:
+# 	system_agent
+# End time: 21:45:29 on Sep 17,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU {C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/memory.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:45:29 on Sep 17,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU" C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/memory.sv 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 21:45:29 on Sep 17,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU {C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/fifo_shift_reg.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:45:29 on Sep 17,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU" C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/fifo_shift_reg.sv 
+# -- Compiling module sa_tx_queue_regs
+# 
+# Top level modules:
+# 	sa_tx_queue_regs
+# End time: 21:45:29 on Sep 17,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU {C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/system.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:45:30 on Sep 17,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU" C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/system.sv 
+# -- Compiling module system
+# 
+# Top level modules:
+# 	system
+# End time: 21:45:30 on Sep 17,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU {C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/testbench.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:45:30 on Sep 17,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU" C:/Users/ShmarvDogg/Documents/Quartus_Projects/Not_So_Basic_CPU_Stuff/Not_So_Basic_CPU/testbench.sv 
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 21:45:30 on Sep 17,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  testbench
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" testbench 
+# Start time: 21:45:30 on Sep 17,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.testbench(fast)
+# Loading work.system(fast)
+# Loading work.memory(fast)
+# Loading work.system_agent(fast)
+# Loading work.sa_tx_queue_regs(fast)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Break key hit
+# Simulation stop requested.
+add wave -position end sim:/testbench/sys/sa/*
+add wave -position end sim:/testbench/sys/sa/queue/*
+run
+# Causality operation skipped due to absence of debug database file
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.testbench(fast)
+# Loading work.system(fast)
+# Loading work.memory(fast)
+# Loading work.system_agent(fast)
+# Loading work.sa_tx_queue_regs(fast)
+run
+# End time: 08:23:06 on Sep 18,2024, Elapsed time: 10:37:36
+# Errors: 0, Warnings: 1
